@@ -1,0 +1,1 @@
+# uninstall_school_spyware_mac
