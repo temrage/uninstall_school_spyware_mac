@@ -11,7 +11,7 @@
 
 ## 🚨 Overview
 
-This guide is specifically tailored for **Mac OS** users who wish to remove school-installed spyware like **Securly**. Whether you're concerned about privacy or simply want more control over your device, this guide will walk you through the steps to reclaim your digital freedom.
+This guide is for **Mac OS** users who wish to remove school-installed spyware like Securly and MDM. 
 
 ⚠️  I do not own a Mac, so I cannot test the uninstallation therefore you'll just have to reset ur entire machine. Please proceed at your own discretion, and backup ur files if necessary. ✌️
 
