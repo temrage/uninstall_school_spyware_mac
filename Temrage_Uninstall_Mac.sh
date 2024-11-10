@@ -22,9 +22,10 @@ network_services=$(networksetup -listallnetworkservices | grep -v "*")
 for service in $network_services; do
   echo "Checking $service for proxy settings..."
 
-  # Check if the service is valid
+  # Check if the service supports proxy settings (i.e., it's not an internal service)
   if networksetup -getwebproxy "$service" >/dev/null 2>&1; then
     # Clear HTTP and HTTPS proxies
+    echo "Clearing HTTP/HTTPS proxy for $service"
     networksetup -setwebproxy "$service" "" "0"
     networksetup -setsecurewebproxy "$service" "" "0"
     networksetup -setwebproxystate "$service" off
