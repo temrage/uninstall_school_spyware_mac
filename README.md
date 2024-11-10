@@ -17,7 +17,7 @@ This guide is for **Mac OS** users who wish to remove school-installed spyware, 
 ## Steps
 
 ### 1. **Stop Using Chrome with Your School's Profile**
-   - **Stop using Chrome** with your school profile. Instead, use **Brave** or **Firefox**, and create a dedicated school profile for school use only.
+   - **Stop using Chrome** with your school profile. Instead, use **Brave** or **Firefox**, and create a dedicated school profile for school without syncing with google.
    - **Why?** The school's Chrome profile forces the **Securly** extension to load, sending all your browsing history to Google and the school.
    - **Important:** If you skip this step, the school can still track you at the browser level.
 
