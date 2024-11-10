@@ -25,11 +25,7 @@ for service in $network_services; do
   # Check if the service supports proxy settings (i.e., it's not an internal service)
   if networksetup -getwebproxy "$service" >/dev/null 2>&1; then
     # Clear HTTP and HTTPS proxies
-    echo "Clearing HTTP/HTTPS proxy for $service"
-    networksetup -setwebproxy "$service" "" "0"
-    networksetup -setsecurewebproxy "$service" "" "0"
-    networksetup -setwebproxystate "$service" off
-    networksetup -setsecurewebproxystate "$service" off
+
     
     # Clear PAC (Automatic Proxy Config) setting
     networksetup -setautoproxyurl "$service" ""
