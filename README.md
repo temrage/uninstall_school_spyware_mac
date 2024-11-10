@@ -64,3 +64,5 @@ This guide is for **Mac OS** users who wish to remove school-installed spyware, 
    #### Restart Your Mac
    - In the menu bar, click the **Apple logo** and select **Restart** (not **Shut Down**).
    - Turn your Mac back on to complete the process.
+> ❗ **Troubleshooting Tips**  
+> - If you get an HTTPS error (such as "Your connection is not private"), follow the instructions on the [SSL Inspection repo](https://github.com/temrage/school_ssl_inspection) to resolve the issue. 
