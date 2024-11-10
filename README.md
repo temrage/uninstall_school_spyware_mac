@@ -43,13 +43,13 @@ This guide is for **Mac OS** users who wish to remove school-installed spyware, 
    - Open **Launchpad > Other > Keychain Access**.
    - Select **System** in the Keychain Access sidebar.
    - Look for a certificate named “`.securly.com`.”
-   - Right-click on the certificate and click the minus button to remove it.
+   - Right-click on the certificate and delete it.
 
 ### 3. **Removing MDM (Mobile Device Management)**
 
    #### Open Profiles
    - Go to **System Preferences > Profiles**.
-   - Find and select the **MDM profile** listed here, then click **Remove**.
+   - Find and select the **MDM profile** listed here, then click the minus button to remove it.
 
    #### Delete MDM Agent Files
    - Open **Finder**.
