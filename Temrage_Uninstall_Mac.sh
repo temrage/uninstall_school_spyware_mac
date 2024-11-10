@@ -1,11 +1,18 @@
 #!/bin/bash
 
-# Prompt for sudo at the beginning of the script
-if [ "$EUID" -ne 0 ]; then
-  echo "This script requires sudo privileges. Please enter your password."
-  sudo "$0" "$@"
-  exit
-fi
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+# Function to check for sudo privileges
+check_sudo() {
+  if [[ $EUID -ne 0 ]]; then
+    echo "This script must be run with sudo privileges. Please run again with sudo."
+    exit 1
+  fi
+}
+
+# Check for sudo privileges
+check_sudo
 
 # Remove Proxy settings, including PAC (Automatic Proxy Config) settings
 echo "Removing proxy settings..."
@@ -36,12 +43,18 @@ else
   echo "No Securly certificate found."
 fi
 
-# Remove MDM profile if present
-echo "Checking for MDM profile..."
-mdm_profile=$(profiles -P | grep "name: MDM Profile" | awk -F: '{print $2}' | xargs)
-if [ -n "$mdm_profile" ]; then
-  profiles -R -p "$mdm_profile"
-  echo "MDM profile removed."
+# Remove any MDM profiles
+echo "Checking for MDM profiles..."
+mdm_profiles=$(profiles -P | grep "attribute: name" | awk -F': ' '{print $2}' | grep -i "MDM")
+
+if [ -n "$mdm_profiles" ]; then
+  echo "MDM profiles found. Removing..."
+  while IFS= read -r profile; do
+    profile_id=$(profiles -P | grep -B 1 "$profile" | head -1 | awk -F': ' '{print $2}')
+    echo "Removing profile: $profile_id ($profile)"
+    profiles -R -p "$profile_id"
+  done <<< "$mdm_profiles"
+  echo "MDM profiles removed."
 else
   echo "No MDM profile found."
 fi
@@ -61,8 +74,6 @@ echo "Emptying Trash..."
 rm -rf ~/.Trash/*
 echo "Trash emptied."
 
-# Restart Mac
-echo "Restarting Mac to complete the process..."
-osascript -e 'tell app "System Events" to restart'
+
 
 echo "Process complete."
