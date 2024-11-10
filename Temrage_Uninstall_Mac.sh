@@ -18,18 +18,25 @@ check_sudo
 echo "Removing proxy settings..."
 network_services=$(networksetup -listallnetworkservices | grep -v "*")
 
+# Iterate over each network service
 for service in $network_services; do
   echo "Checking $service for proxy settings..."
-  
-  # Clear HTTP and HTTPS proxies
-  networksetup -setwebproxy "$service" "" "0"
-  networksetup -setsecurewebproxy "$service" "" "0"
-  networksetup -setwebproxystate "$service" off
-  networksetup -setsecurewebproxystate "$service" off
-  
-  # Clear PAC (Automatic Proxy Config) setting
-  networksetup -setautoproxyurl "$service" ""
-  networksetup -setautoproxystate "$service" off
+
+  # Check if the service is valid
+  if networksetup -getwebproxy "$service" >/dev/null 2>&1; then
+    # Clear HTTP and HTTPS proxies
+    networksetup -setwebproxy "$service" "" "0"
+    networksetup -setsecurewebproxy "$service" "" "0"
+    networksetup -setwebproxystate "$service" off
+    networksetup -setsecurewebproxystate "$service" off
+    
+    # Clear PAC (Automatic Proxy Config) setting
+    networksetup -setautoproxyurl "$service" ""
+    networksetup -setautoproxystate "$service" off
+    echo "Proxy settings removed for $service."
+  else
+    echo "No proxy settings to remove for $service."
+  fi
 done
 echo "Proxy settings, including PAC, removed."
 
@@ -73,7 +80,6 @@ fi
 echo "Emptying Trash..."
 rm -rf ~/.Trash/*
 echo "Trash emptied."
-
 
 
 echo "Process complete."
