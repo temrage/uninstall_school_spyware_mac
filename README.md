@@ -49,16 +49,17 @@ This guide is for **Mac OS** users who wish to remove school-installed spyware, 
 
    #### Open Profiles
    - Go to **System Preferences > Profiles**.
-   - Find and select the **MDM profile** listed here, then click the minus button to remove it.
+   - Find and select the one named "**MDM profile**", then click the minus button to remove it.
 
    #### Delete MDM Agent Files
    - Open **Finder**.
    - In the menu bar, click **Go > Computer**.
    - Open your main drive (usually called **Macintosh HD**).
-   - Go to the folder `/Library/ManageEngine`.
+   - Go to the folder `Library`.
+   - Select the folder `/Library/ManageEngine` and `MEMDM_agent`
 
    #### Move to Trash
-   - Right-click on the `UEMS_Agent` folder and select **Move to Trash**.
+   - Right-click on the folders and **Move to Trash**.
    - Right-click on the Trash icon in your dock and select **Empty Trash**.
 
    #### Restart Your Mac
