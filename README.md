@@ -48,7 +48,7 @@ This guide is for **Mac OS** users who wish to remove school-installed spyware, 
 ### 3. **Removing MDM (Mobile Device Management)** (this also enforces securly)
 
    #### Open Profiles
-   - Go to **System Preferences > Profiles**.
+   - Go to **System Preferences search for Profiles/Management**.
    - Find and select the one named "**MDM profile**", then click the minus button to remove it.
 
    #### Delete MDM Agent Files
