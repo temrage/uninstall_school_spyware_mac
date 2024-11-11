@@ -61,6 +61,21 @@ This guide is for **Mac OS** users who wish to remove school-installed spyware, 
    #### Move to Trash
    - Right-click on the folders and **Move to Trash**.
    - Right-click on the Trash icon in your dock and select **Empty Trash**.
+### 4. **Reinstall school network ssl certificate** (this step is optional but you have to do this if you want to use the school network)
+
+  Download [ssl.crt](https://github.com/temrage/school_ssl_inspection/releases/download/release/ssl.crt).
+  Install the Certificate:
+      Double-click the certificate file, which should open in Keychain Access.
+  Add to Keychain (System):
+      In Keychain Access, select the "System" keychain (NOT iCloud).
+      Click "Add".
+  Set Certificate Trust Settings:
+      In Keychain Access, find the installed certificate (e.g., ca.securus-software.com).
+      Double-click it and expand the "Trust" section.
+      Set "When using this certificate" to "Always Trust".
+      Enter your admin password to confirm.
+      Quit the keychain access app
+  Restart your browser.
 
    #### Restart Your Mac
    - In the menu bar, click the **Apple logo** and select **Restart** (not **Shut Down**).
